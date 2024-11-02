@@ -11,9 +11,11 @@ The system checks if the user has already voted, ensuring “one person, one vot
 # Real-Time Vote Count Display:
 Vote counts for each candidate (e.g., BJP, Congress, AAP, JDU, RJD) are displayed on the voting screen.
 The system dynamically updates vote counts after each submission, offering users instant feedback on election progress.
-Technologies Used
+
+# Technologies Used
 Java Swing for GUI
 MySQL for database management
 JDBC for database connectivity
 PreparedStatement for SQL injection prevention
+
 
