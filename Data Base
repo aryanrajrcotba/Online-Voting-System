@@ -1,0 +1,26 @@
+
+CREATE DATABASE voting_db;
+
+-- Use the new database
+USE voting_db;
+
+-- Create the votes table
+DROP TABLE IF EXISTS votes;
+CREATE TABLE votes (
+    voter_id VARCHAR(50) PRIMARY KEY,
+    voter_name VARCHAR(100),
+    candidate VARCHAR(50)
+);
+
+-- Create the users table
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(100),
+    voter_id VARCHAR(50) UNIQUE,
+    FOREIGN KEY (voter_id) REFERENCES votes(voter_id) ON DELETE CASCADE
+);
+
+-- Insert sample users with credentials and voter IDs
+INSERT INTO users (username, password, voter_id) VALUES ('aryanraj', '123456', 'VOTER001');
+INSERT INTO users (username, password, voter_id) VALUES ('pragya', '1234', 'VOTER002');
