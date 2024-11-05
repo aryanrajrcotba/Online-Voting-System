@@ -1,0 +1,35 @@
+import javax.swing.*;
+
+public class VotingSystem extends JFrame {
+    private String loggedInVoterId;
+
+    public VotingSystem() {
+        showLoginScreen();
+    }
+
+    public void showLoginScreen() {
+        LoginPanel loginPanel = new LoginPanel(this);
+        setContentPane(loginPanel);
+        revalidate();
+    }
+
+    public void showVotingScreen() {
+        VotingPanel votingPanel = new VotingPanel(loggedInVoterId);
+        setContentPane(votingPanel);
+        revalidate();
+    }
+
+    public void setLoggedInVoterId(String voterId) {
+        this.loggedInVoterId = voterId;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            VotingSystem frame = new VotingSystem();
+            frame.setTitle("Voting System");
+            frame.setSize(500, 600);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        });
+    }
+}
